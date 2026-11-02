@@ -1,0 +1,262 @@
+/* Custom Styles for The Serendipity Chapel */
+
+:root {
+  --wedding-cream: #fdfbf7;
+  --wedding-blush: #fceee9;
+  --wedding-rose: #e8a598;
+  --wedding-wine: #8c3b4a;
+  --wedding-gold: #d4af37;
+  --wedding-darkgold: #997f24;
+}
+
+body {
+  background-color: var(--wedding-cream);
+  background-image:
+    radial-gradient(at 0% 0%, rgba(252, 238, 233, 0.6) 0px, transparent 50%),
+    radial-gradient(
+      at 100% 100%,
+      rgba(212, 175, 55, 0.15) 0px,
+      transparent 50%
+    ),
+    radial-gradient(at 50% 50%, rgba(232, 165, 152, 0.1) 0px, transparent 60%);
+  min-height: 100vh;
+  font-size: 18px;
+}
+
+.text-xs {
+  font-size: 0.875rem !important;
+}
+
+.text-sm {
+  font-size: 1rem !important;
+}
+
+[class~="text-base"] {
+  font-size: 1.125rem !important;
+}
+
+[class~="text-[9px]"] {
+  font-size: 11px !important;
+}
+
+[class~="text-[10px]"] {
+  font-size: 12px !important;
+}
+
+[class~="text-[11px]"] {
+  font-size: 13px !important;
+}
+
+/* Danmaku Flying Wish Animation */
+.danmaku-item {
+  position: absolute;
+  white-space: nowrap;
+  padding: 6px 16px;
+  border-radius: 9999px;
+  font-size: 13px;
+  font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(232, 165, 152, 0.4);
+  box-shadow: 0 4px 15px rgba(140, 59, 74, 0.08);
+  color: var(--wedding-wine);
+  will-change: transform;
+  animation: danmaku-move linear forwards;
+}
+
+@keyframes danmaku-move {
+  0% {
+    transform: translateX(100vw);
+  }
+  100% {
+    transform: translateX(-120%);
+  }
+}
+
+/* Spin slow */
+.animate-spin-slow {
+  animation: spin 8s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ==================== TINDER SWIPE STACK STYLES ==================== */
+.tinder-card {
+  position: absolute;
+  inset: 0;
+  border-radius: 28px;
+  overflow: hidden;
+  box-shadow:
+    0 20px 30px -10px rgba(140, 59, 74, 0.18),
+    0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  background: #ffffff;
+  border: 1px solid rgba(212, 175, 55, 0.35);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  user-select: none;
+  cursor: grab;
+  touch-action: pan-y;
+  transition:
+    transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275),
+    opacity 0.25s ease;
+  will-change: transform, opacity;
+}
+
+.tinder-card:active {
+  cursor: grabbing;
+}
+
+.tinder-badge-like,
+.tinder-badge-nope {
+  position: absolute;
+  top: 24px;
+  padding: 6px 16px;
+  border-radius: 12px;
+  font-family: "Cinzel", serif;
+  font-weight: 800;
+  font-size: 18px;
+  letter-spacing: 2px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.15s ease;
+  z-index: 30;
+}
+
+.tinder-badge-like {
+  right: 24px;
+  color: #10b981;
+  border: 3px solid #10b981;
+  transform: rotate(12deg);
+}
+
+.tinder-badge-nope {
+  left: 24px;
+  color: #ef4444;
+  border: 3px solid #ef4444;
+  transform: rotate(-12deg);
+}
+
+/* Hide scrollbar for clean horizontal draggable bar */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Wedding Registry Card */
+.wedding-card {
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: pointer;
+}
+
+.wedding-card:hover {
+  transform: translateY(-6px);
+  box-shadow:
+    0 20px 25px -5px rgba(140, 59, 74, 0.12),
+    0 10px 10px -5px rgba(140, 59, 74, 0.04);
+}
+
+.wedding-card.active-couple {
+  border-color: var(--wedding-wine);
+  background-color: #ffffff;
+  box-shadow:
+    0 0 0 2px var(--wedding-wine),
+    0 20px 25px -5px rgba(140, 59, 74, 0.15);
+}
+
+/* Wish Card Polaroid Effect */
+.wish-card {
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform, box-shadow;
+}
+
+.wish-card:hover {
+  transform: translateY(-6px) scale(1.01) !important;
+  box-shadow:
+    0 20px 25px -5px rgba(140, 59, 74, 0.15),
+    0 10px 10px -5px rgba(140, 59, 74, 0.04);
+}
+
+/* Color picker active state */
+.color-picker-btn.active {
+  transform: scale(1.2);
+  outline: 2px solid var(--wedding-wine);
+  outline-offset: 2px;
+}
+
+/* AI Tone active state */
+.ai-tone-chip.active {
+  background-color: var(--wedding-wine);
+  color: white;
+  border-color: var(--wedding-wine);
+}
+
+/* Preference filter active state */
+.preference-filter-btn.active {
+  background-color: var(--wedding-wine);
+  color: white;
+  border-color: var(--wedding-wine);
+}
+
+/* Three.js Container styling */
+#three-canvas-container canvas {
+  width: 100% !important;
+  height: 100% !important;
+  display: block;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #fdfbf7;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #e8a598;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #8c3b4a;
+}
+
+/* Tinder Card Hero Header */
+.tinder-card-header {
+  border-radius: 28px 28px 0 0;
+  flex-shrink: 0;
+}
+
+/* Filter Checkbox Style Override */
+.filter-checkbox-input {
+  accent-color: #8c3b4a;
+}
+
+.filter-checkbox-label:hover .filter-checkbox-input {
+  outline: 2px solid rgba(140, 59, 74, 0.3);
+}
+
+/* Tinder Card layout override for rich content */
+.tinder-card {
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  padding: 0 !important;
+}
